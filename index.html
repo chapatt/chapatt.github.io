@@ -1,8 +1,205 @@
 <html>
 <head>
-  <title>Hello</title>
+  <title>Chase Patterson</title>
+
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        xhr = new XMLHttpRequest();
+        xhr.open('GET', 'images/logo.svg',false);
+        xhr.send();
+        document.getElementById('title').appendChild(xhr.responseXML.documentElement);
+    });
+  </script>
+
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      color: #555555;
+
+      --projects-per-row: 3;
+      --project-width: 13em;
+      --project-margin: 0.2em;
+      --project-total-width: calc(var(--project-width) + (var(--project-margin) * 2));
+      --project-border-radius: 0.5em;
+      --project-bottom-gradient: 2em;
+    }
+
+    #container {
+      max-width: calc(var(--project-total-width) * var(--projects-per-row));
+      margin: 0 auto;
+    }
+
+    #header {
+      padding: 1em 0;
+    }
+
+    #header > ul#navigation {
+      float: right;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      color: #555555;
+    }
+
+    #header > ul#navigation a {
+      color: #555555;
+    }
+
+    #header > ul#navigation a:hover {
+      color: #aaaaaa;
+    }
+
+    #header > ul#navigation > li {
+      display: inline-block;
+    }
+
+    #header > ul#navigation > li:not(:first-child) {
+      margin-left: 1em;
+    }
+
+    #header > #title {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
+
+    #header > #title #logo {
+      width: 20em;
+      height: auto;
+    }
+
+    #header > #title #logo #path-chalk {
+      display: none;
+    }
+
+    #header > #title:hover #logo #path-chalk {
+      display: block;
+    }
+
+    #header > #description {
+      margin: 1em 3em;
+      font-size: 1.75em;
+    }
+
+    #header > #description p {
+      margin: 0;
+      padding: 0;
+    }
+
+    a.project {
+      display: inline-block;
+      width: var(--project-width);
+      height: calc(var(--project-width) * (3 / 4));
+      margin: var(--project-margin);
+      padding: 0;
+      overflow: hidden;
+      text-decoration: none;
+      border-radius: var(--project-border-radius);
+      background-color: #eeeeee;
+      background-size: cover;
+      color: #ffffff;
+      font-family: Helvetica, sans-serif;
+    }
+
+    a.project > .text {
+      display: none;
+      margin: 0;
+      padding: calc(var(--project-border-radius) / 2);
+      padding-bottom: var(--project-bottom-gradient);
+      background: linear-gradient(to top, rgba(180, 180, 180, 0) 0, rgba(180, 180, 180, 0.8) var(--project-bottom-gradient), rgba(180, 180, 180, 0.8) 100%);
+    }
+
+    a.project > .text > .title, a.project > .text > .description {
+      margin: 0;
+      padding: 0;
+    }
+
+    a.project > .text > .title {
+      font-size: 1.2em;
+    }
+
+    a.project:hover > .text {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-  <p>Hello, world.</p>
+<div id="container">
+  <div id="header">
+    <ul id="navigation">
+      <li><a href="https://github.com/chapatt/">github</a></li>
+      <li>chapatt<span style="display: none;">blah</span>@gmail.com</li>
+    </ul>
+    <a id="title" href="http://cgpatterson.com/"></a>
+    <div id="description">
+      <p>Hi, I'm Chase. Here's a selection of my open-source projects.</p>
+    </div>
+  </div>
+  <a class="project" href="http://cgpatterson.com/calculators" style="background-image: url('images/calculators.png');">
+    <div class="text">
+      <h2 class="title">calculators</h2>
+      <p class="description">
+        A collection of web-based calculators
+      </p>
+    </div>
+  </a><a class="project" href="http://github.com/chapatt/libjson2c" style="background-image: url('images/libjson2c.svg');">
+    <div class="text">
+      <h2 class="title">libjson2c</h2>
+      <p class="description">
+        A library for parsing JSON tokenized by jsmn into a C data structure based on a grammar defined in the client code
+      </p>
+    </div>
+  </a><a class="project" href="http://cgpatterson.com/chapatt-web-widget-tk" style="background-image: url('images/chapatt-web-widget-tk.png');">
+    <div class="text">
+      <h2 class="title">chapatt-web-widget-tk</h2>
+      <p class="description">
+        A simple HTML- and JavaScript-based UI widget toolkit
+      </p>
+    </div>
+  </a><a class="project" href="http://github.com/chapatt/php-weathermap-scale" style="background-image: url('images/php-weathermap-scale.svg');">
+    <div class="text">
+      <h2 class="title">php-weathermap-scale</h2>
+      <p class="description">
+        An awk script for scaling the size of a PHP Network Weathermap configuration
+      </p>
+    </div>
+  </a><a class="project" href="http://github.com/chapatt/cpdlldeps" style="background-image: url('images/cpdlldeps.svg');">
+    <div class="text">
+      <h2 class="title">cpdlldeps</h2>
+      <p class="description">
+        Recursively find the DLL dependencies of the object specified and copy them to the working directory using MinGW32-w64 objdump.
+      </p>
+    </div>
+  </a><a class="project" href="http://github.com/chapatt/ina217-mic-pre" style="background-image: url('images/ina217-mic-pre.svg');">
+    <div class="text">
+      <h2 class="title">ina217-mic-pre</h2>
+      <p class="description">
+        A microphone preamplifier based on the INA217 with a balanced output
+      </p>
+    </div>
+  </a><a class="project" href="http://github.com/chapatt/bst.sh" style="background-image: url('images/bst_sh.svg');">
+    <div class="text">
+      <h2 class="title">bst.sh</h2>
+      <p class="description">
+        A binary search tree implemented in relatively-portable Unix/POSIX/Bourne shell.
+      </p>
+    </div>
+  </a><a class="project" href="http://github.com/chapatt/autotracker" style="background-image: url('images/autotracker.svg');">
+    <div class="text">
+      <h2 class="title">autotracker</h2>
+      <p class="description">
+        Drive a rotor with a GPS-and-compass-equipped Raspberry Pi to follow a station, monitored via web app.
+      </p>
+    </div>
+  </a><a class="project" href="http://github.com/chapatt/snman" style="background-image: url('images/snman.svg');">
+    <div class="text">
+      <h2 class="title">snman</h2>
+      <p class="description">
+        Simple Network Manager, a client for various network protocols.
+      </p>
+    </div>
+  </a>
+</div>
 </body>
 </html>
