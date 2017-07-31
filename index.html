@@ -2,6 +2,7 @@
 <head>
   <title>Chase Patterson</title>
 
+  <!-- For SVG logo. Disabled due to lack of browser support
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
         xhr = new XMLHttpRequest();
@@ -10,13 +11,17 @@
         document.getElementById('title').appendChild(xhr.responseXML.documentElement);
     });
   </script>
+  -->
 
   <style type="text/css">
     body {
       margin: 0;
       padding: 0;
       color: #555555;
+      font-family: sans-serif;
 
+      --logo-width: 350px;
+      --logo-height: calc(var(--logo-width) * (3 / 14));
       --projects-per-row: 3;
       --project-width: 13em;
       --project-margin: 0.2em;
@@ -62,19 +67,37 @@
       display: inline-block;
       margin: 0;
       padding: 0;
+      width: var(--logo-width);
     }
 
     #header > #title #logo {
-      width: 20em;
+      width: 100%;
       height: auto;
     }
 
-    #header > #title #logo #path-chalk {
-      display: none;
+    /*
+     * For SVG logo. Disabled due to lack of browser support
+     * #header > #title #logo #path-chalk {
+     *   display: none;
+     * }
+     *
+     * #header > #title:hover #logo #path-chalk {
+     *   display: block;
+     * }
+     */
+
+    /*
+     * For bitmap logo.
+     */
+    #header > #title {
+      height: var(--logo-height);
+      background-image: url('images/logo.png');
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
-    #header > #title:hover #logo #path-chalk {
-      display: block;
+    #header > #title:hover {
+      background-position: 0 100%;
     }
 
     #header > #description {
